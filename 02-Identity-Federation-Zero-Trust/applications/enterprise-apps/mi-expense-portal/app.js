@@ -13,13 +13,21 @@ const graphRoutes = require("./routes/graph");
 const authorizationRoutes = require("./routes/authorization");
 //saml federation routes
 const samlRoutes = require("./routes/saml");
-
+//scim routes
+const scimUsersRoutes = require("./scim/users");
+//scim groups routes
+const scimGroupsRoutes = require("./scim/groups");
+//scim auhentication routes
+const scimAuth = require("./middleware/scimAuth");
 
 const app = express();
 
 const PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json({
+    type: ["application/json", "application/scim+json"]
+}));
 
 app.use(
     session({
@@ -45,6 +53,10 @@ app.use("/auth/saml", samlRoutes);
 app.use("/graph", graphRoutes);
 app.use("/authorization", authorizationRoutes);
 
+//mounted secured SCIM endpoints
+app.use("/scim/v2", scimAuth);
+app.use("/scim/v2", scimUsersRoutes);
+app.use("/scim/v2", scimGroupsRoutes);
 
 /*
  * Home page
