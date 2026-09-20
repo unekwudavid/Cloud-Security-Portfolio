@@ -135,21 +135,97 @@ router.post("/Users", (req, res) => {
 /*
  * SCIM 2.0 - List Users
  *
- * Returns all users provisioned into the application.
+ * Supports SCIM filtering for userName and externalId.
+ *
+ * Examples:
+ *
+ * GET /scim/v2/Users
+ *
+ * GET /scim/v2/Users?filter=userName%20eq%20%22user@example.com%22
+ *
+ * GET /scim/v2/Users?filter=externalId%20eq%20%22employee-001%22
  */
 router.get("/Users", (req, res) => {
 
     const users = getUsers();
 
+    const filter = req.query.filter;
+
+    /*
+     * No filter supplied:
+     * return all users.
+     */
+    if (!filter) {
+
+        return res.status(200).json({
+            schemas: [
+                "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+            ],
+            totalResults: users.length,
+            Resources: users
+        });
+    }
+
+    /*
+     * SCIM equality filter:
+     *
+     * userName eq "value"
+     * externalId eq "value"
+     */
+    const match = filter.match(
+        /^\s*(userName|externalId)\s+eq\s+"([^"]*)"\s*$/i
+    );
+
+    /*
+     * Reject unsupported filter syntax rather than
+     * silently returning incorrect data.
+     */
+    if (!match) {
+
+        return res.status(400).json({
+            schemas: [
+                "urn:ietf:params:scim:api:messages:2.0:Error"
+            ],
+            detail: `Unsupported SCIM filter: ${filter}`,
+            status: "400"
+        });
+    }
+
+    const attribute = match[1].toLowerCase();
+    const value = match[2];
+
+    /*
+     * Perform case-insensitive matching.
+     */
+    const filteredUsers = users.filter(user => {
+
+        if (attribute === "username") {
+
+            return (
+                typeof user.userName === "string" &&
+                user.userName.toLowerCase() === value.toLowerCase()
+            );
+        }
+
+        if (attribute === "externalid") {
+
+            return (
+                typeof user.externalId === "string" &&
+                user.externalId.toLowerCase() === value.toLowerCase()
+            );
+        }
+
+        return false;
+    });
+
     return res.status(200).json({
         schemas: [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
         ],
-        totalResults: users.length,
-        Resources: users
+        totalResults: filteredUsers.length,
+        Resources: filteredUsers
     });
 });
-
 
 /*
  * SCIM 2.0 - Get User

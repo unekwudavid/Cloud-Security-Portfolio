@@ -4,6 +4,8 @@ const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
 const axios = require("axios");
+// const scimServiceProviderConfigRoutes =
+//     require("./scim/serviceProviderConfig");
 
 //authentication routes
 const authRoutes = require("./routes/auth");
@@ -19,6 +21,9 @@ const scimUsersRoutes = require("./scim/users");
 const scimGroupsRoutes = require("./scim/groups");
 //scim auhentication routes
 const scimAuth = require("./middleware/scimAuth");
+//scim service provider config routes
+const scimServiceProviderConfigRoutes =
+    require("./scim/serviceProviderConfig");
 
 const app = express();
 
@@ -57,6 +62,7 @@ app.use("/authorization", authorizationRoutes);
 app.use("/scim/v2", scimAuth);
 app.use("/scim/v2", scimUsersRoutes);
 app.use("/scim/v2", scimGroupsRoutes);
+app.use("/scim/v2", scimServiceProviderConfigRoutes);
 
 /*
  * Home page
