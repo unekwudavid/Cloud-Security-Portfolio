@@ -58,11 +58,14 @@ app.use("/auth/saml", samlRoutes);
 app.use("/graph", graphRoutes);
 app.use("/authorization", authorizationRoutes);
 
+
 //mounted secured SCIM endpoints
 app.use("/scim/v2", scimAuth);
 app.use("/scim/v2", scimUsersRoutes);
 app.use("/scim/v2", scimGroupsRoutes);
 app.use("/scim/v2", scimServiceProviderConfigRoutes);
+
+
 
 /*
  * Home page

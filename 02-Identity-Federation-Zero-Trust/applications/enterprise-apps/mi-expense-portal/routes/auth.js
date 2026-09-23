@@ -54,7 +54,16 @@ router.get("/callback", async (req, res) => {
         console.log("Application roles:");
         console.log(response.idTokenClaims?.roles);
 
-        res.redirect("/");
+        req.session.save((err) => {
+    if (err) {
+        console.error("Session save failed:", err);
+        return res.status(500).send("Authentication session could not be saved.");
+    }
+
+    console.log("Authentication session saved successfully.");
+
+    res.redirect("/");
+});    
     } catch (error) {
         console.error("Token acquisition failed:", error);
         res.status(500).send("Authentication failed.");
