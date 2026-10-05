@@ -1,5 +1,7 @@
 # Project 2 - Identity Federation & Zero Trust Platform
 
+![Project 2 hero banner](./preview/project2-hero-preview.svg)
+
 An enterprise identity and application-security project demonstrating how workforce identities in Microsoft Entra ID securely access internal and SaaS applications through federation, modern authentication, provisioning, and Zero Trust controls.
 
 The project extends the identity lifecycle foundation established in Project 1 into the application and authentication layer. It is based on a fictional Mustard Innovations environment and focuses on secure application integration, least privilege, continuous verification, and auditable identity operations.
@@ -163,6 +165,8 @@ The platform also incorporates the device trust layer needed for Zero Trust enfo
 
 The current assessment found a tenant with a registered but unmanaged device and an expired Microsoft Entra ID P2 license, which means the project documents the intended Zero Trust design and governance model without claiming live production enforcement. The model is designed to integrate device compliance, endpoint management, and conditional access into the MI Expense Portal access path.
 
+![Zero Trust device governance model](./diagrams/architecture/zero-trust/Zero%20trust%20device%20governance%20model.png)
+
 ```mermaid
 flowchart TD
     A[User Sign-in] --> B[Microsoft Entra ID]
@@ -214,6 +218,10 @@ The repository documents the current state and the constraints clearly:
 This is an intentional governance approach: the documentation captures the model, constraints, and implementation path without overstating the current environment.
 
 ### Device Governance Evidence
+
+![Device trust decision model](./diagrams/architecture/zero-trust/Device%20trust%20decision%20model.png)
+
+![Exception management lifecycle](./diagrams/architecture/zero-trust/Exception%20management%20lifecycle.png)
 
 ![Device inventory](./screenshots/device%20and%20conditional%20access%20governance/Device%20inventory.png)
 

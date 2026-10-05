@@ -1,0 +1,117 @@
+<svg width="1600" height="640" viewBox="0 0 1600 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Project 2 premium identity federation and zero trust hero concept">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#071b2a"/>
+      <stop offset="45%" stop-color="#0b2338"/>
+      <stop offset="100%" stop-color="#07131d"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="28%" cy="20%" r="62%">
+      <stop offset="0%" stop-color="#60efd9" stop-opacity="0.7"/>
+      <stop offset="30%" stop-color="#60efd9" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#60efd9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="80%" cy="14%" r="54%">
+      <stop offset="0%" stop-color="#66c5ff" stop-opacity="0.46"/>
+      <stop offset="100%" stop-color="#66c5ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0" x2="1">
+      <stop offset="0%" stop-color="#17395b"/>
+      <stop offset="100%" stop-color="#102b43"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0%" stop-color="#8af7dc"/>
+      <stop offset="38%" stop-color="#5de1ff"/>
+      <stop offset="100%" stop-color="#9ebeff"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" x2="1">
+      <stop offset="0%" stop-color="#122f48"/>
+      <stop offset="100%" stop-color="#0c2339"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#010b12" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="640" fill="url(#bg)"/>
+  <ellipse cx="500" cy="180" rx="620" ry="300" fill="url(#glowA)"/>
+  <ellipse cx="1228" cy="150" rx="450" ry="240" fill="url(#glowB)"/>
+
+  <g opacity="0.22">
+    <path d="M0 540 C260 500, 470 575, 760 520 S1220 450, 1600 520 L1600 640 L0 640 Z" fill="#143a5a"/>
+    <path d="M0 565 C280 515, 520 610, 830 560 S1260 500, 1600 560" stroke="#62dfe6" stroke-width="2" fill="none"/>
+  </g>
+
+  <g transform="translate(80 120)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="740" height="420" rx="30" fill="url(#panel)" stroke="rgba(166,216,255,0.18)"/>
+
+    <g opacity="0.92">
+      <circle cx="210" cy="210" r="128" fill="none" stroke="url(#accent)" stroke-width="2.5"/>
+      <circle cx="210" cy="210" r="84" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.8"/>
+      <circle cx="210" cy="210" r="22" fill="#99f7e6"/>
+    </g>
+
+    <g stroke="url(#accent)" stroke-width="2.5" fill="none" opacity="0.82">
+      <path d="M100 210 L42 210"/>
+      <path d="M378 210 L440 210"/>
+      <path d="M210 102 L210 40"/>
+      <path d="M210 318 L210 380"/>
+      <path d="M127 130 L92 95"/>
+      <path d="M293 290 L328 325"/>
+      <path d="M127 290 L92 325"/>
+      <path d="M293 130 L328 95"/>
+      <path d="M72 142 C122 175, 165 210, 210 210 S300 246, 358 210"/>
+    </g>
+
+    <g fill="#e0f1ff" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600">
+      <text x="86" y="198">Entra ID</text>
+      <text x="320" y="215">App</text>
+      <text x="195" y="85">SAML</text>
+      <text x="196" y="382">OIDC</text>
+      <text x="128" y="260">Federation</text>
+      <text x="242" y="260">MFA</text>
+      <text x="147" y="312">Zero Trust</text>
+    </g>
+
+    <g transform="translate(56 300)">
+      <rect x="0" y="0" width="176" height="42" rx="21" fill="#0b2137" stroke="#74efd8"/>
+      <text x="38" y="27" fill="#edf8ff" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">Federation</text>
+
+      <rect x="202" y="0" width="160" height="42" rx="21" fill="#0b2137" stroke="#7acfff"/>
+      <text x="250" y="27" fill="#edf8ff" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">MFA</text>
+
+      <rect x="388" y="0" width="230" height="42" rx="21" fill="#0b2137" stroke="#8fead7"/>
+      <text x="432" y="27" fill="#edf8ff" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">Zero Trust</text>
+    </g>
+  </g>
+
+  <g transform="translate(860 132)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="610" height="350" rx="30" fill="url(#card)" stroke="rgba(159,214,255,0.18)"/>
+
+    <text x="42" y="82" fill="#cfe8ff" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="2">PROJECT 02</text>
+    <text x="42" y="168" fill="#f7fdff" font-family="Segoe UI, Arial, sans-serif" font-size="49" font-weight="800">Identity Federation</text>
+    <text x="42" y="220" fill="url(#accent)" font-family="Segoe UI, Arial, sans-serif" font-size="49" font-weight="800">&amp; Zero Trust</text>
+
+    <text x="42" y="268" fill="#d4ebff" font-family="Segoe UI, Arial, sans-serif" font-size="21">Microsoft Entra ID • SAML • OAuth/OIDC • RBAC</text>
+    <text x="42" y="304" fill="#d4ebff" font-family="Segoe UI, Arial, sans-serif" font-size="21">SCIM • Conditional Access • Device Governance</text>
+
+    <g transform="translate(42 324)">
+      <rect x="0" y="0" width="182" height="38" rx="19" fill="url(#accent)"/>
+      <text x="28" y="25" fill="#071823" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="800">SECURE ACCESS</text>
+
+      <rect x="208" y="0" width="192" height="38" rx="19" fill="#0e2f4a" stroke="#8ddaff" stroke-opacity="0.7"/>
+      <text x="238" y="25" fill="#f0f9ff" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">LEAST PRIVILEGE</text>
+    </g>
+  </g>
+
+  <g transform="translate(1218 72)">
+    <g transform="translate(0 0)">
+      <path d="M0 52 L34 18 L68 52 L34 86 Z" fill="#73f5da" opacity="0.92"/>
+    </g>
+    <g transform="translate(88 0)">
+      <path d="M0 52 L34 18 L68 52 L34 86 Z" fill="#7cc5ff" opacity="0.94"/>
+    </g>
+    <g transform="translate(176 0)">
+      <path d="M0 52 L34 18 L68 52 L34 86 Z" fill="#9abaff" opacity="0.9"/>
+    </g>
+  </g>
+</svg>
