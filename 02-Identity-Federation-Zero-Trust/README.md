@@ -6,112 +6,97 @@ An enterprise identity and application-security project demonstrating how workfo
 
 The project extends the identity lifecycle foundation established in Project 1 into the application and authentication layer. It is based on a fictional Mustard Innovations environment and focuses on secure application integration, least privilege, continuous verification, and auditable identity operations.
 
-## 1. Executive Summary
+## Executive Summary
 
-Project 2 implements an enterprise identity federation and Zero Trust platform for Mustard Innovations, with Microsoft Entra ID at the center of access decisions. The solution combines SAML federation, OAuth/OIDC authentication, SCIM provisioning, application RBAC, access governance, and device-aware security controls to demonstrate how modern identity security is designed and operated in practice.
+Project 2 delivers an enterprise identity federation and Zero Trust model for Mustard Innovations, built around Microsoft Entra ID as the control plane for authentication, authorization, provisioning, and governance. The design spans SAML, OAuth/OIDC, SCIM, RBAC, identity governance, and device-aware security decisions to show how access is granted, enforced, and reviewed at scale.
 
-This project is built around the MI Expense Portal and shows how user identity, application assignment, application roles, and device trust work together to enforce least privilege, explicit authorization, and auditable access decisions.
+This project is centered on the MI Expense Portal and demonstrates how application roles, assignment logic, access reviews, and device trust combine to support least privilege and clear auditability.
 
-## 2. Project Status
+## What I Built
 
-| Area | Status | Notes |
-| --- | --- | --- |
-| SAML federation | Implemented | Microsoft Entra ID as IdP with SAML assertion validation and role-based authorization |
-| OAuth / OIDC | Implemented | Modern app authentication and delegated authorization patterns |
-| SCIM provisioning | Implemented | Automated user and group lifecycle provisioning |
-| RBAC | Implemented | App roles enforced at the application layer |
-| Governance | Implemented | Group-based entitlement model and access reviews |
-| PIM | Documented | Privileged access governance model captured in docs |
-| Zero Trust / device trust | Design + assessment documented | Device compliance and MDM controls are modeled and documented but constrained by licensing and management status |
-| Infrastructure automation | Implemented | Terraform and configuration automation included |
+### Portfolio summary
 
-## 3. What I Actually Built
+- Microsoft Entra ID as the federated identity provider
+- SAML-based enterprise access using app roles and claims
+- OAuth/OIDC implementation for modern delegated authentication
+- SCIM-based lifecycle provisioning for users and groups
+- Application-layer RBAC with fail-closed authorization behavior
+- Access governance, PIM alignment, and Zero Trust device compliance design
 
-### MI Expense Portal
+### Business flow
 
-The primary application in this project is the MI Expense Portal, which demonstrates:
+1. Workforce users authenticate through Microsoft Entra ID
+2. The application receives identity context and claims
+3. Assignment and app role determine authorization
+4. The app enforces access boundaries at runtime
+5. Governance and review controls maintain accountability over time
 
-- Microsoft Entra ID as the identity provider
-- SAML 2.0 federation for enterprise access
-- Application roles for Employee, Manager, Finance, and Admin
-- RBAC enforcement at the application layer
-- Group-based governance and explicit assignment controls
-- Zero Trust alignment through device and access controls
-
-### Core business flow
-
-1. User authenticates to Microsoft Entra ID
-2. Application receives identity context and claims
-3. Assignment and app role determine entitlement
-4. Authorization middleware enforces access boundaries
-5. Access is reviewed, monitored, and governed over time
-
-## 4. Architecture
+## Architecture
 
 ![Project 2 high-level architecture](./diagrams/architecture/project-2-high-level.png)
 
-## 5. Core Capabilities
+## Core Capabilities
 
 ### OIDC
-- Modern authentication with delegated authorization
-- Claims-based access decisions
-- Secure app integration patterns
+- Modern delegated authentication
+- Claims-based authorization decisions
+- Secure integration patterns for enterprise apps
 
 ![OAuth/OIDC authentication flow](./diagrams/architecture/oauth-oidc-authentication-flow.png)
 
 ### SAML
-- Enterprise federation for web applications
-- Assertion validation and session creation
-- Authorization based on app role claims
+- External identity federation for app access
+- Assertion validation and role mapping
+- Permission enforcement using explicit app claims
 
 ![SAML implementation architecture](./diagrams/architecture/SAML%20Implementation.png)
 
 ### SCIM
-- Automated lifecycle provisioning for users and groups
-- Reduced manual access administration
+- Automated user and group lifecycle provisioning
+- Reduced manual access maintenance
 - Joiner, mover, and leaver alignment
 
 ![SCIM provisioning architecture](./diagrams/architecture/SCIM.png)
 
 ### RBAC
-- Explicit app assignments
-- Role-based authorization at the application layer
-- Fail-closed enforcement when claims are missing or invalid
+- Explicit app assignment model
+- Role-based authorization enforced at the app layer
+- Fail-closed behavior for missing or invalid claims
 
 ![Application RBAC model](./diagrams/architecture/project-2-high-level.png)
 
 ### Governance
-- Group-based entitlement model
-- Access reviews and remediation
-- Application ownership and accountability
+- Group-based entitlements and access reviews
+- Ownership and accountability at the application layer
+- Lifecycle governance for access decisions
 
 ![Group-based access governance](./diagrams/architecture/group-based-access-governance.mmd.png)
 
 ### PIM
-- Privileged access governance documentation
-- Least-privilege admin controls
+- Privileged access governance model
+- Least-privilege controls for administrative access
 
 ![PIM implementation](./diagrams/architecture/PIM%20Implementation.png)
 
 ### Zero Trust
-- MFA and risk-aware authentication
-- Device compliance and MDM considerations
-- Conditional Access alignment and exception governance
+- Device trust, compliance, and MDM alignment
+- Conditional Access-driven verification
+- Exception handling with governance and visibility
 
 ![Zero Trust device governance model](./diagrams/architecture/zero-trust/Zero%20trust%20device%20governance%20model.png)
 
-## 6. Security Decisions
+## Security Decisions
 
-The project emphasizes the following design principles:
+Key design principles behind the implementation:
 
-- **Least privilege:** Access is granted only through explicit entitlement and authorization paths
-- **Fail closed:** Missing or unrecognized role claims do not grant access
-- **Strong authentication:** MFA and identity risk controls are part of the model
-- **Explicit assignments:** Application access is controlled rather than implicitly granted
-- **Governed exceptions:** Device exceptions and access exceptions are documented, reviewed, and controlled
-- **Auditability:** Identity changes, access decisions, and reviews are designed to be explainable and traceable
+- **Least privilege:** Access is granted only through explicit entitlement paths
+- **Fail closed:** Missing or unknown role claims do not authorize access
+- **Strong identity assurance:** MFA and identity risk controls are part of the model
+- **Explicit assignments:** Access is controlled rather than assumed by default
+- **Governed exceptions:** Device and access exceptions are documented and reviewed
+- **Auditability:** Identity decisions are designed to be explainable and traceable
 
-## 7. Validation & Evidence
+## Validation & Evidence
 
 The implementation includes validation for both authentication and authorization:
 
