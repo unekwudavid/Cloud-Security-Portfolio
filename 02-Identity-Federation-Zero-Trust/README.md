@@ -57,10 +57,14 @@ The primary application in this project is the MI Expense Portal, which demonstr
 - Claims-based access decisions
 - Secure app integration patterns
 
+![OAuth/OIDC authentication flow](./diagrams/architecture/oauth-oidc-authentication-flow.png)
+
 ### SAML
 - Enterprise federation for web applications
 - Assertion validation and session creation
 - Authorization based on app role claims
+
+![SAML implementation architecture](./diagrams/architecture/SAML%20Implementation.png)
 
 ### SCIM
 - Automated lifecycle provisioning for users and groups
@@ -74,19 +78,27 @@ The primary application in this project is the MI Expense Portal, which demonstr
 - Role-based authorization at the application layer
 - Fail-closed enforcement when claims are missing or invalid
 
+![Application RBAC model](./diagrams/architecture/project-2-high-level.png)
+
 ### Governance
 - Group-based entitlement model
 - Access reviews and remediation
 - Application ownership and accountability
 
+![Group-based access governance](./diagrams/architecture/group-based-access-governance.mmd.png)
+
 ### PIM
 - Privileged access governance documentation
 - Least-privilege admin controls
+
+![PIM implementation](./diagrams/architecture/PIM%20Implementation.png)
 
 ### Zero Trust
 - MFA and risk-aware authentication
 - Device compliance and MDM considerations
 - Conditional Access alignment and exception governance
+
+![Zero Trust device governance model](./diagrams/architecture/zero-trust/Zero%20trust%20device%20governance%20model.png)
 
 ## 6. Security Decisions
 
