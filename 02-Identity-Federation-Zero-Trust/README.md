@@ -113,6 +113,118 @@ SCIM supports automated user and group provisioning to connected applications. P
 - Application roles for resource-level authorization.
 - Monitoring of sign-in, provisioning, and audit events.
 
+## Identity Governance and Entitlement Management
+
+The project extends the identity foundation with governance controls designed to keep access aligned with business ownership and operational need over time. This includes explicit application ownership, group-based entitlement design, and periodic access reviews.
+
+### Governance Model
+
+The MI Expense Portal uses dedicated governing groups to separate identity entitlements from application authorization:
+
+- `SG-MI-Employees` → Employee role
+- `SG-MI-Managers` → Manager role
+- `SG-MI-Finance` → Finance role
+- `SG-MI-Admins` → Admin role
+
+This model reduces direct assignment sprawl, creates a clearer entitlement boundary, and supports centralized review and remediation.
+
+### Access Review Workflow
+
+```mermaid
+flowchart LR
+    A[User / Group Membership] --> B[SG-MI-Finance]
+    B --> C[Quarterly Access Review]
+    C --> D[IAM Reviewer]
+    D --> E{Approve or Deny}
+    E -->|Approve| F[Membership Retained]
+    E -->|Deny| G[Access Removed Automatically]
+    G --> H[Audit Trail / Compliance Evidence]
+```
+
+### Group-Based Governance Diagram
+
+![Group-based access governance](./diagrams/architecture/group-based-access-governance.mmd.png)
+
+### Governance Implementation Highlights
+
+- Enterprise application ownership is assigned to a named accountable owner.
+- Assignment required is enabled for the application to enforce an explicit access boundary.
+- Security groups drive access entitlement instead of direct per-user role assignment.
+- Quarterly access reviews validate that membership still matches business need.
+- Legacy entitlement cleanup is performed as part of access remediation and review cycles.
+
+This governance pattern supports the overall Zero Trust model by ensuring access remains justified, reviewable, and controllable beyond initial onboarding.
+
+## Zero Trust Device Compliance, MDM, and Device Governance
+
+The platform also incorporates the device trust layer needed for Zero Trust enforcement. In this project, device posture is treated as a first-class condition for access, alongside identity authentication, application assignment, and role-based authorization.
+
+### Device Trust Model
+
+The current assessment found a tenant with a registered but unmanaged device and an expired Microsoft Entra ID P2 license, which means the project documents the intended Zero Trust design and governance model without claiming live production enforcement. The model is designed to integrate device compliance, endpoint management, and conditional access into the MI Expense Portal access path.
+
+```mermaid
+flowchart TD
+    A[User Sign-in] --> B[Microsoft Entra ID]
+    B --> C[Device Registered / Enrolled]
+    C --> D[MDM / Intune Compliance]
+    D --> E{Compliant?}
+    E -->|Yes| F[Conditional Access Evaluation]
+    E -->|No| G[Access Blocked / Remediation Required]
+    F --> H[Application Assignment + App Role Authorization]
+    H --> I[Protected Resource Access]
+```
+
+### Compliance Baseline
+
+The project defines a proposed device compliance baseline for managed devices, including:
+
+- Encryption enabled
+- Secure boot enabled where supported
+- Antivirus healthy and reporting
+- Firewall enabled
+- Supported operating system version
+- Device enrollment and reporting in the endpoint-management platform
+
+Devices that fail these checks are treated as noncompliant and subject to remediation before access is restored.
+
+### MDM and Device Management Governance
+
+The design emphasizes management ownership and operational governance for devices, including:
+
+- Device registration and inventory review
+- Endpoint management requirements
+- Compliance assessment criteria
+- Access restrictions for unmanaged or noncompliant devices
+- Controlled exception handling for approved scenarios
+- Continuous validation of device trust before protected-resource access
+
+This aligns with Zero Trust principles by ensuring trust is not assumed solely from identity, but from the security posture of the device and the management status of the endpoint.
+
+### Current Operational Status
+
+The repository documents the current state and the constraints clearly:
+
+- One Entra-registered device exists in the tenant.
+- The device is currently unmanaged.
+- The Microsoft Entra ID P2 trial has expired.
+- Conditional Access enforcement remains pending licensing and management validation.
+- No live enforcement claim is made without the required capabilities being operational.
+
+This is an intentional governance approach: the documentation captures the model, constraints, and implementation path without overstating the current environment.
+
+### Device Governance Evidence
+
+![Device inventory](./screenshots/device%20and%20conditional%20access%20governance/Device%20inventory.png)
+
+![Existing Conditional Access policies](./screenshots/device%20and%20conditional%20access%20governance/Existing%20Conditional%20Access%20policy%20list.png)
+
+![MI Expense Portal governance groups](./screenshots/device%20and%20conditional%20access%20governance/MI%20Expense%20Portal%20governance%20groups.png)
+
+![MI Expense Portal permissions review](./screenshots/device%20and%20conditional%20access%20governance/MI%20Expense%20Portal%20Permissions.png)
+
+These artifacts provide evidence for the device governance assessment, access-control design, and the operational safeguards that support a Zero Trust model.
+
 ## Repository Structure
 
 ```text
@@ -130,6 +242,26 @@ SCIM supports automated user and group provisioning to connected applications. P
 └── security/            Conditional Access and related security controls
 ```
 
+## Architecture and Control Views
+
+The project now includes architecture diagrams and control-flow views covering the core federation, authentication, provisioning, and governance patterns used across the platform.
+
+### High-Level Platform Architecture
+
+![Project 2 high-level architecture](./diagrams/architecture/project-2-high-level.png)
+
+### Authentication, Provisioning, and Governance Flows
+
+![OAuth/OIDC authentication flow](./diagrams/architecture/oauth-oidc-authentication-flow.png)
+
+![SAML implementation view](./diagrams/architecture/SAML%20Implementation.png)
+
+![SCIM provisioning view](./diagrams/architecture/SCIM.png)
+
+![PIM implementation view](./diagrams/architecture/PIM%20Implementation.png)
+
+These views illustrate how Microsoft Entra ID, enterprise apps, federated identity flows, access reviews, and privileged access controls combine into a Zero Trust operating model.
+
 ## Validation Evidence
 
 Validation covers both authentication and authorization:
@@ -142,6 +274,38 @@ Validation covers both authentication and authorization:
 6. Confirm unauthorized requests return `403 Forbidden`.
 
 Evidence should include enterprise application configuration, application role definitions, role assignment, successful authentication, received role claims, and endpoint responses. Secrets, private keys, tokens, and session cookies must never be included in screenshots or committed to source control.
+
+### Implementation Evidence Gallery
+
+The repository includes end-to-end screenshots showing the configuration and validation of the identity platform components. Example evidence includes:
+
+#### SAML federation and RBAC validation
+
+![SAML app registration overview](./screenshots/SAML/05-entra-idp-entra-setup.png)
+
+![SAML role claim validation](./screenshots/SAML/07-attribute@claims.png)
+
+![Successful SAML authentication](./screenshots/SAML/08-SAML-authentication-success.png)
+
+![SAML unauthorized access response](./screenshots/SAML/06-manager-403.png)
+
+#### OAuth/OIDC and application authorization evidence
+
+![Entra app registration overview](./screenshots/app-registration-oauth-oidc/01-entra-app-registration-overview.png.png)
+
+![OAuth configuration](./screenshots/app-registration-oauth-oidc/02-oauth-authentication-configuration.png.png)
+
+![Successful Entra authentication](./screenshots/app-registration-oauth-oidc/03-successful-entra-authentication.png.png)
+
+![Application role and assignment validation](./screenshots/app-registration-oauth-oidc/08-Entra-applicatio-role.png)
+
+![Authorized access confirmation](./screenshots/app-registration-oauth-oidc/12-Successful-authorization.png)
+
+#### Identity governance and access review evidence
+
+![Group-based access governance model](./screenshots/group-based-access-governance/09-MI-Expense-Portal-Group-Based-App-Role-Governance.png.png)
+
+These screenshots provide evidence for the operational implementation and the security controls enforced by the platform.
 
 ## Related Documentation
 

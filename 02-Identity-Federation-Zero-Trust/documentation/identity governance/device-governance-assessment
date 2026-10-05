@@ -1,0 +1,98 @@
+# Device Governance Assessment
+
+## Objective
+
+Assess the current Microsoft Entra device environment and Conditional Access configuration before implementing device-based access controls for the MI Expense Portal.
+
+## Environment Assessment
+
+### Conditional Access
+
+* Existing policies:
+* Policies affecting MI Expense Portal:
+* Current policy states:
+* Relevant grant controls:
+
+### Device Inventory
+
+* Entra registered devices:
+* Entra joined devices:
+* Hybrid joined devices:
+* Compliant devices:
+* Noncompliant devices:
+
+### Enterprise Application
+
+* Assignment required:
+* Application owner:
+* Governance groups:
+* Existing authentication methods:
+
+## Findings
+
+[Document observations and potential gaps.]
+
+## Security Considerations
+
+* Preserve existing authentication and authorization functionality.
+* Avoid unintended administrator lockout.
+* Validate policy scope before enforcement.
+* Use report-only mode where appropriate before enabling new access restrictions.
+* Maintain evidence of configuration and test results.
+
+## Licensing Constraint — Conditional Access
+
+**Status:** Blocked for live policy enforcement
+**Reason:** Microsoft Entra ID P2 trial has expired.
+
+The tenant currently contains three user-created Conditional Access policies, all configured in Report-only mode:
+
+* CA-MFA-001-Require-MFA-Pilot-Users
+* CA-MI-Sign-in-Risk-MFA
+* CA-MI-User-Risk-Remediation
+
+The current licensing state prevents full validation and enforcement of the risk-based Conditional Access controls.
+
+The existing policies have been preserved without modification.
+
+### Mitigation Plan
+
+1. Retain the existing policy configurations as assessment evidence.
+2. Document the intended device-based access-control design.
+3. Continue device inventory and identity-governance assessment.
+4. Avoid claiming successful enforcement or testing of unavailable features.
+5. Revisit live Conditional Access validation if the required licensing becomes available.
+
+**Security decision:** No licensing workaround or unverified enforcement claim will be introduced into the portfolio.
+
+
+### Device Inventory Findings
+
+The Microsoft Entra tenant contains one registered device.
+
+| Attribute         | Observed state             |
+| ----------------- | -------------------------- |
+| Device count      | 1                          |
+| Join type         | Microsoft Entra registered |
+| Management status | Unmanaged                  |
+| Compliance status | Not established            |
+
+#### Security Implications
+
+The device is registered with Microsoft Entra ID but is not currently managed through an endpoint-management platform.
+
+Device registration alone does not demonstrate that the device satisfies organisational security requirements. The current inventory therefore does not provide evidence of enforced device compliance.
+
+#### Governance Recommendation
+
+For a production environment, device governance should establish a documented device-trust baseline, including:
+
+* Device ownership and registration requirements.
+* Endpoint-management requirements.
+* Compliance assessment criteria.
+* Access restrictions for devices that do not meet the defined baseline.
+* A controlled exception process for approved unmanaged-device scenarios.
+
+Live enforcement remains subject to the availability of the required licensing and device-management capabilities.
+
+**Assessment conclusion:** The current tenant has a registered but unmanaged device, establishing a baseline for future device-governance design.

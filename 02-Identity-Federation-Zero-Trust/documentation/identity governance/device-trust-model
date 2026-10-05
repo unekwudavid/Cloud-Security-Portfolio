@@ -1,0 +1,102 @@
+# Device Trust Model — Mustard Innovations
+
+## 1. Purpose
+
+This document defines the proposed device-trust model for the MI Expense Portal as part of the Identity Federation & Zero Trust Platform.
+
+The objective is to incorporate device security posture into enterprise access decisions while preserving existing identity authentication, group-based entitlements, and application role enforcement.
+
+## 2. Current Environment
+
+The initial Microsoft Entra device assessment identified one registered device.
+
+| Attribute         | Current state              |
+| ----------------- | -------------------------- |
+| Device count      | 1                          |
+| Join type         | Microsoft Entra registered |
+| Management status | Unmanaged                  |
+| Compliance status | Not established            |
+| Entra ID P2       | Trial expired              |
+
+The current environment does not provide sufficient evidence to claim that device-compliance enforcement is operational.
+
+## 3. Device Trust States
+
+### 3.1 Managed and Compliant
+
+A device enrolled in an approved endpoint-management platform and meeting the organisation's defined compliance requirements.
+
+**Proposed outcome:** Eligible for access, subject to user authentication, application assignment, and other applicable security controls.
+
+### 3.2 Registered but Unmanaged
+
+A device registered with Microsoft Entra ID but not managed by the organisation.
+
+**Proposed outcome:** Restricted access to protected corporate resources. Any exception must be explicitly approved and documented.
+
+### 3.3 Managed but Noncompliant
+
+A device enrolled in endpoint management but failing one or more required compliance checks.
+
+**Proposed outcome:** Access to protected resources is restricted until the device meets the required baseline, subject to a documented remediation process.
+
+### 3.4 Unknown or Unregistered
+
+A device without an established organisational device identity or trust status.
+
+**Proposed outcome:** Access to protected corporate resources is denied unless an approved exception applies.
+
+## 4. Security Principles
+
+* Least privilege
+* Zero Trust
+* Device-aware access decisions
+* Separation of authentication and authorization
+* Explicit exception management
+* Continuous compliance assessment
+* Auditability and accountability
+
+## 5. Integration with Existing IAM Controls
+
+Device trust is an additional access consideration and does not replace:
+
+* Microsoft Entra authentication
+* Enterprise application assignment requirements
+* Group-based application role assignments
+* Application-level authorization middleware
+* Existing MFA and risk-based policy design
+
+The MI Expense Portal will retain its Employee, Manager, Finance, and Admin authorization boundaries.
+
+## 6. Licensing and Implementation Constraints
+
+The Entra ID P2 trial has expired. Live enforcement of certain Conditional Access and risk-based controls is therefore deferred pending licensing validation.
+
+The current device inventory also does not establish that an endpoint-management or compliance platform is available.
+
+The trust model is a proposed architecture and must not be represented as an operationally enforced control until implementation and testing are completed.
+
+## 7. Validation Plan
+
+When the required capabilities are available, validate the following scenarios:
+
+1. Managed and compliant device accessing an assigned application.
+2. Registered but unmanaged device attempting access.
+3. Managed but noncompliant device attempting access.
+4. Unknown or unregistered device attempting access.
+5. Approved exception handling.
+6. Existing app-role authorization remaining effective.
+7. Audit evidence for allowed and denied access decisions.
+
+## 8. Evidence
+
+* Device inventory assessment screenshot
+* Conditional Access policy inventory
+* Enterprise application assignment configuration
+* Future policy configuration and test results
+
+## 9. Conclusion
+
+The proposed device-trust model establishes a foundation for device-aware access governance in the MI Expense Portal.
+
+Implementation will proceed only after licensing, endpoint-management capabilities, policy scope, and potential administrator lockout risks have been validated.
