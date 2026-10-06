@@ -1,6 +1,6 @@
 # Project 2 - Identity Federation & Zero Trust Platform
 
-![Project 2 hero banner](./diagrams/project 2 hero image.png)
+![Project 2 hero banner](./diagrams/project%202%20hero%20image.png)
 
 An enterprise identity and application-security project demonstrating how workforce identities in Microsoft Entra ID securely access internal and SaaS applications through federation, modern authentication, provisioning, and Zero Trust controls.
 
