@@ -1,0 +1,181 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Project 2 Identity Federation and Zero Trust Platform</title>
+  <desc id="desc">A modern cyber security hero banner for a Microsoft Entra Identity and Zero Trust project.</desc>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#021a2d"/>
+      <stop offset="28%" stop-color="#052a45"/>
+      <stop offset="65%" stop-color="#071d3c"/>
+      <stop offset="100%" stop-color="#020e1e"/>
+    </linearGradient>
+    <radialGradient id="glowBlue" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#2ec8ff" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#1774d9" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#0d1830" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panelGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b2343"/>
+      <stop offset="100%" stop-color="#0d1d38"/>
+    </linearGradient>
+    <linearGradient id="blueAccent" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#4ad3ff"/>
+      <stop offset="100%" stop-color="#0969d8"/>
+    </linearGradient>
+    <linearGradient id="greenAccent" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#65f4d2"/>
+      <stop offset="100%" stop-color="#0bb5d5"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#021827" flood-opacity="0.7"/>
+    </filter>
+    <style>
+      .title { font: 800 72px 'Segoe UI', Arial, sans-serif; fill: white; }
+      .subtitle { font: 600 26px 'Segoe UI', Arial, sans-serif; fill: #9ad8ff; letter-spacing: 0.1em; }
+      .body { font: 500 22px 'Segoe UI', Arial, sans-serif; fill: #dceeff; }
+      .tiny { font: 600 18px 'Segoe UI', Arial, sans-serif; fill: #9dd9ff; }
+      .cardTitle { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #f3fbff; }
+      .smallLabel { font: 700 15px 'Segoe UI', Arial, sans-serif; fill: #d9f3ff; }
+      .greenTag { fill: #0fe2c2; fill-opacity: 0.12; stroke: #69e8f5; stroke-width: 2; }
+      .greenText { fill: #6ef0d2; font: 700 18px 'Segoe UI', Arial, sans-serif; }
+      .blueCard { fill: rgba(17,75,122,0.82); stroke: rgba(123,220,255,0.7); stroke-width: 2; }
+      .softCard { fill: rgba(20,30,58,0.82); stroke: rgba(93,170,255,0.5); stroke-width: 2; }
+      .cyanStroke { stroke: rgba(104,218,255,0.9); stroke-width: 2; fill: none; }
+      .iconGlow { filter: url(#softGlow); }
+      .panelLine { stroke: rgba(120,219,255,0.30); stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bgGrad)"/>
+  <circle cx="870" cy="330" r="620" fill="url(#glowBlue)" opacity="0.65"/>
+  <g opacity="0.35">
+    <circle cx="240" cy="320" r="180" fill="none" stroke="#3ec9ff" stroke-width="2"/>
+    <circle cx="240" cy="320" r="240" fill="none" stroke="#3ec9ff" stroke-width="1.5"/>
+    <circle cx="240" cy="320" r="300" fill="none" stroke="#3ec9ff" stroke-width="1.5"/>
+    <circle cx="1360" cy="520" r="200" fill="none" stroke="#3ec9ff" stroke-width="2"/>
+  </g>
+
+  <g opacity="0.9">
+    <path d="M0 740 C280 640, 420 710, 620 690 S980 610, 1600 750 L1600 900 L0 900 Z" fill="rgba(12,33,61,0.4)"/>
+  </g>
+
+  <g>
+    <text x="75" y="110" class="subtitle" fill="#79d9ff">PROJECT 2</text>
+    <text x="75" y="285" class="title">Identity Federation &amp;</text>
+    <text x="75" y="370" class="title">Zero Trust Platform</text>
+    <text x="75" y="435" class="body" fill="#d7f0ff">Secure Identities • Trusted Applications • Controlled Access</text>
+    <text x="75" y="495" class="body" fill="#cfe7ff" style="font-size:20px; font-weight:500;">An enterprise identity and application-security project demonstrating how workforce</text>
+    <text x="75" y="526" class="body" fill="#cfe7ff" style="font-size:20px; font-weight:500;">identities in Microsoft Entra ID securely access internal and SaaS applications through</text>
+    <text x="75" y="557" class="body" fill="#cfe7ff" style="font-size:20px; font-weight:500;">federation, modern authentication, provisioning, and Zero Trust controls.</text>
+  </g>
+
+  <g transform="translate(1010 60)">
+    <rect x="0" y="0" width="430" height="470" rx="28" fill="rgba(19,42,70,0.94)" stroke="rgba(103,223,255,0.8)" stroke-width="2"/>
+    <g>
+      <rect x="80" y="65" width="260" height="260" rx="130" fill="none" stroke="url(#blueAccent)" stroke-width="6" opacity="0.9"/>
+      <path d="M210 104 L290 104 L325 120 L325 216 C325 255 296 286 254 294 L210 294 C168 286 139 255 139 216 L139 120 Z" fill="rgba(9,179,255,0.08)" stroke="rgba(120,220,255,0.9)" stroke-width="3"/>
+      <path d="M250 120 L250 104 L275 104 L295 120 L295 216 C295 248 272 276 236 282 L232 282 C196 276 173 248 173 216 L173 120 L197 104 L220 104 L220 120 Z" fill="none" stroke="rgba(137,219,255,0.85)" stroke-width="3"/>
+      <path d="M220 168 C204 168 193 180 193 197 C193 220 211 233 220 244 C229 233 247 220 247 197 C247 180 236 168 220 168 Z" fill="rgba(137,219,255,0.22)" stroke="rgba(137,219,255,0.9)" stroke-width="3"/>
+      <path d="M190 208 L220 236 L250 208" fill="none" stroke="#c9f6ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="220" cy="193" r="12" fill="#eafcff"/>
+      <circle cx="220" cy="193" r="30" fill="none" stroke="rgba(137,219,255,0.45)" stroke-width="3"/>
+      <path d="M128 290 C170 330, 270 330, 312 290" fill="none" stroke="rgba(160,220,255,0.7)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M90 170 C130 128, 170 115, 210 116" fill="none" stroke="rgba(160,220,255,0.5)" stroke-width="2"/>
+    </g>
+    <g>
+      <g transform="translate(40 330)">
+        <text x="0" y="30" class="cardTitle" fill="#eafcff" style="font-size:30px;">Mustard Innovations</text>
+        <text x="0" y="62" class="tiny" fill="#9ee5ff">Identity • Governance • Security</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(55 640)">
+    <rect x="0" y="0" width="1190" height="190" rx="24" fill="rgba(10, 28, 52, 0.55)" stroke="rgba(121,221,255,0.22)" stroke-width="1.5"/>
+    <g transform="translate(28 22)">
+      <rect x="0" y="0" width="180" height="148" rx="18" class="blueCard"/>
+      <circle cx="36" cy="36" r="18" fill="#83d4ff" opacity="0.9"/>
+      <text x="74" y="42" class="cardTitle" style="font-size:25px;">Workforce</text>
+      <text x="74" y="72" class="tiny" fill="#bfe6ff">Identities</text>
+      <text x="26" y="108" class="tiny" fill="#d4f2ff">Employees</text>
+      <text x="26" y="130" class="tiny" fill="#d4f2ff">Groups</text>
+    </g>
+
+    <g transform="translate(230 22)">
+      <rect x="0" y="0" width="270" height="148" rx="18" class="blueCard"/>
+      <rect x="22" y="18" width="64" height="64" rx="16" fill="rgba(55,175,255,0.35)" stroke="rgba(131,214,255,0.8)"/>
+      <g transform="translate(38 36)">
+        <path d="M10 0 L42 0 L52 14 L52 26 L10 26 Z" fill="#dffbff" opacity="0.8"/>
+        <circle cx="32" cy="10" r="10" fill="#72d8ff"/>
+      </g>
+      <text x="105" y="43" class="cardTitle" style="font-size:28px;">Microsoft</text>
+      <text x="105" y="74" class="cardTitle" style="font-size:28px;">Entra ID</text>
+      <text x="26" y="112" class="tiny" fill="#dfefff">Authentication • Authorization • MFA</text>
+    </g>
+
+    <g transform="translate(530 22)">
+      <rect x="0" y="0" width="260" height="148" rx="18" class="blueCard"/>
+      <text x="24" y="42" class="cardTitle">Enterprise</text>
+      <text x="24" y="72" class="cardTitle">Security</text>
+      <g transform="translate(170 20)">
+        <rect x="0" y="0" width="56" height="56" rx="14" fill="rgba(42,171,255,0.25)" stroke="rgba(121,221,255,0.8)"/>
+        <path d="M28 12 L41 18 L41 31 C41 43 35 49 28 53 C21 49 15 43 15 31 L15 18 Z" fill="#dffbff" opacity="0.95"/>
+      </g>
+      <text x="24" y="115" class="tiny" fill="#dffbff">SAML • OAuth / OIDC • SCIM</text>
+    </g>
+
+    <g transform="translate(820 22)">
+      <rect x="0" y="0" width="330" height="148" rx="18" class="blueCard"/>
+      <text x="24" y="44" class="cardTitle" style="font-size:30px;">Zero Trust</text>
+      <text x="24" y="74" class="cardTitle" style="font-size:30px;">Access</text>
+      <g transform="translate(195 18)">
+        <rect x="0" y="0" width="90" height="90" rx="18" fill="rgba(87,193,255,0.18)" stroke="rgba(125,225,255,0.8)"/>
+        <path d="M45 18 L72 30 L72 56 C72 71 59 82 45 88 C31 82 18 71 18 56 L18 30 Z" fill="rgba(170,232,255,0.9)"/>
+      </g>
+      <text x="24" y="118" class="tiny" fill="#dffbff">Device Trust • Conditional Access • Governance</text>
+    </g>
+  </g>
+
+  <g transform="translate(1245 640)">
+    <rect x="0" y="0" width="310" height="230" rx="22" fill="rgba(10,28,52,0.94)" stroke="rgba(255,185,64,0.86)" stroke-width="2"/>
+    <rect x="18" y="18" width="274" height="52" rx="14" fill="rgba(59,230,191,0.12)" stroke="rgba(109,250,214,0.7)"/>
+    <text x="52" y="52" class="greenText">What&#39;s Implemented</text>
+    <g transform="translate(28 84)">
+      <circle cx="14" cy="12" r="8" fill="#5ae8d1"/>
+      <text x="32" y="18" class="smallLabel" fill="#dffbff">Microsoft Entra ID integration</text>
+      <circle cx="14" cy="42" r="8" fill="#5ae8d1"/>
+      <text x="32" y="48" class="smallLabel" fill="#dffbff">OAuth 2.0 / OpenID Connect</text>
+      <circle cx="14" cy="72" r="8" fill="#5ae8d1"/>
+      <text x="32" y="78" class="smallLabel" fill="#dffbff">SAML 2.0 federation</text>
+      <circle cx="14" cy="102" r="8" fill="#5ae8d1"/>
+      <text x="32" y="108" class="smallLabel" fill="#dffbff">SCIM provisioning</text>
+      <circle cx="14" cy="132" r="8" fill="#5ae8d1"/>
+      <text x="32" y="138" class="smallLabel" fill="#dffbff">Application RBAC</text>
+    </g>
+  </g>
+
+  <g transform="translate(1245 430)">
+    <rect x="0" y="0" width="310" height="190" rx="22" fill="rgba(10,28,52,0.94)" stroke="rgba(199,219,255,0.40)" stroke-width="2"/>
+    <text x="28" y="46" class="cardTitle" style="font-size:38px;">Zero Trust</text>
+    <text x="28" y="78" class="cardTitle" style="font-size:38px;">Access</text>
+    <g transform="translate(24 104)">
+      <circle cx="12" cy="12" r="8" fill="#6fe9ff"/>
+      <text x="30" y="18" class="smallLabel" fill="#dffbff">Device Trust</text>
+      <circle cx="12" cy="44" r="8" fill="#6fe9ff"/>
+      <text x="30" y="50" class="smallLabel" fill="#dffbff">Conditional Access</text>
+      <circle cx="12" cy="76" r="8" fill="#6fe9ff"/>
+      <text x="30" y="82" class="smallLabel" fill="#dffbff">Risk-based controls</text>
+    </g>
+  </g>
+
+  <g transform="translate(70 600)">
+    <path d="M0 20 L120 20 L120 60 L0 60 Z" fill="rgba(31,102,184,0.9)" opacity="0.95"/>
+    <path d="M0 60 L120 60 L120 90 L0 90 Z" fill="rgba(31,102,184,0.65)" opacity="0.9"/>
+  </g>
+</svg>
